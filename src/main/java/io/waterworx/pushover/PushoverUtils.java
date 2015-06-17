@@ -27,10 +27,11 @@ public class PushoverUtils implements PushoverService {
 	 */
 	@Override
 	public String push(String apiToken, String userID, String message ) throws PushoverException{
-			      
 		Status status = client.pushMessage(PushoverMessage.builderWithApiToken(apiToken)
 		        .setUserId(userID)
 		        .setMessage(message)
+		        .setPriority(MessagePriority.HIGH)
+		        .setSound("alien")
 		        .build());
 		return status.toString();
 	}
