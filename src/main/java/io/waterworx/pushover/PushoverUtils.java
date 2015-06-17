@@ -5,6 +5,7 @@ import javax.inject.Singleton;
 
 import com.google.gson.annotations.Since;
 
+import net.pushover.client.MessagePriority;
 import net.pushover.client.PushoverClient;
 import net.pushover.client.PushoverException;
 import net.pushover.client.PushoverMessage;
@@ -27,9 +28,26 @@ public class PushoverUtils implements PushoverService {
 	@Override
 	public String push(String apiToken, String userID, String message ) throws PushoverException{
 			      
-		Status status = client.pushMessage(PushoverMessage.builderWithApiToken("aS4s9HiwMkq6vjqvemDYbAqZQaJ8Nk")
+		Status status = client.pushMessage(PushoverMessage.builderWithApiToken(apiToken)
 		        .setUserId(userID)
 		        .setMessage(message)
+		        .build());
+		return status.toString();
+	}
+
+	@Override
+	public String push(String apiToken, String userID, String message,
+			String title, String url, String urlTitle)
+			throws PushoverException {
+		
+		Status status = client.pushMessage(PushoverMessage.builderWithApiToken(apiToken)
+		        .setTitleForURL(urlTitle)
+		        .setUrl(url)
+		        .setTitle(title)
+				.setUserId(userID)
+		        .setMessage(message)
+		        .setPriority(MessagePriority.HIGH)
+		        .setSound("alien")
 		        .build());
 		return status.toString();
 	}

@@ -13,6 +13,7 @@ public class PushoverUtilsTest {
 
 	private PushoverService pushover;
 	private static final String API_TOKEN = "mockToken";
+	private static final String USER_ID = "user1";
 	private PushoverRestClient client;
 	
 	@Before
@@ -22,13 +23,24 @@ public class PushoverUtilsTest {
 	}
 
 	@Test
-	public void test() throws PushoverException {
+	public void testPushWithMessage() throws PushoverException {
 		
 		Status status = mock(Status.class);
 		when(client.pushMessage(anyObject())).thenReturn(status);
 		
 		String userID = "user1";
 		pushover.push(API_TOKEN, userID, "Hello World");
+		verify(client).pushMessage(anyObject());
+		
+	}
+	
+	@Test
+	public void testPushWithTileAndURL() throws PushoverException {
+		
+		Status status = mock(Status.class);
+		when(client.pushMessage(anyObject())).thenReturn(status);
+		
+		pushover.push(API_TOKEN, USER_ID, "Hello World", "Title", "url", "urlTitle");
 		verify(client).pushMessage(anyObject());
 		
 	}
