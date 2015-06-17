@@ -12,8 +12,8 @@ public class push {
 	public static void main(String[] args) throws PushoverException {
 		PushoverClient client = new PushoverRestClient();        
 
-		client.pushMessage(PushoverMessage.builderWithApiToken("MY_APP_API_TOKEN")
-		        .setUserId("USER_ID_TOKEN")
+		client.pushMessage(PushoverMessage.builderWithApiToken("aS4s9HiwMkq6vjqvemDYbAqZQaJ8Nk")
+		        .setUserId("uQgzsYM37Di4AK4e8cRg2KEWQCGYMn")
 		        .setMessage("testing!")
 		        .build());
 
