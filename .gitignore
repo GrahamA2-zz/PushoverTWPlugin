@@ -13,6 +13,9 @@ local.properties
 .settings/
 .loadpath
 
+#Properties file contains the APIToken and userID
+config.properties
+
 # Eclipse Core
 .project
 
