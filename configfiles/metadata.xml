@@ -6,21 +6,22 @@
 						  packageVersion="0.01" 
 						  minimumThingWorxVersion="4.1.0">
 			<JarResources>
-				<FileResource type="JAR" file="Pushover_Server.jar" description="" />
+				<FileResource type="JAR" file="PushoverConnector-0.1.0.jar" description="" />
+				<FileResource type="JAR" file="commons-codec-1.6.jar" description="" />
 				<FileResource type="JAR" file="pushover-client-1.0.0.jar" description="" />
-				<FileResource type="JAR" file="pguice-4.0.jar" description="" />
-				<FileResource type="JAR" file="phttpcore-4.2.1.jar" description="" />
-				<FileResource type="JAR" file="phttpclient-4.2.1.jar" description="" />
-				<FileResource type="JAR" file="pgson-2.2.2.jar" description="" />
-				<FileResource type="JAR" file="pjavax.inject-1.jar" description="" />
-				<FileResource type="JAR" file="paopalliance-1.0.jar" description="" />
-				<FileResource type="JAR" file="pguava-16.0.1.jar" description="" />
-				<FileResource type="JAR" file="pobjenesis-2.1.jar" description="" />
+				<FileResource type="JAR" file="guice-4.0.jar" description="" />
+				<FileResource type="JAR" file="httpcore-4.2.1.jar" description="" />
+				<FileResource type="JAR" file="httpclient-4.2.1.jar" description="" />
+				<FileResource type="JAR" file="gson-2.2.2.jar" description="" />
+				<FileResource type="JAR" file="javax.inject-1.jar" description="" />
+				<FileResource type="JAR" file="aopalliance-1.0.jar" description="" />
+				<FileResource type="JAR" file="guava-16.0.1.jar" description="" />
+				<FileResource type="JAR" file="objenesis-2.1.jar" description="" />
 			</JarResources>
 			</ExtensionPackage>
 	</ExtensionPackages>
 	<ThingPackages>
-		<ThingPackage name="PushoverConnector" description="" className="main.java.io.waterworx.pushover.PushoverConnector" aspect.isSystemObject="false" aspect.isCreatable="true">
+		<ThingPackage name="PushoverConnector" description="" className="io.waterworx.pushover.PushoverConnector" aspect.isSystemObject="false" aspect.isCreatable="true">
 		<HandlerDefinitions/>		
 		</ThingPackage>
 	</ThingPackages>

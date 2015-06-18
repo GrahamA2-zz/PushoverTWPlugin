@@ -22,13 +22,39 @@ repositories {
        dirs 'lib'
    }
 }
+version =  '0.1.0'
+
+
 
 jar {
-    baseName = 'tw-pushover-service'
-    version =  '0.1.0'
+    baseName = 'PushoverConnector'
+    //version =  '0.1.0'
+    manifest {
+    attributes 'Implementation-Title': 'PushoverConnector',
+               'Implementation-Version': version
+    }
 }
 
+File metaData = file('configfiles/metadata.xml')
 
+task copyRuntimeLibs(type: Copy) {
+    into "$buildDir/required"
+    from configurations.runtime
+    exclude 'thingworx-all-4.2.0.jar','slf4j-api-1.7.5.jar','joda-time-2.8.1.jar'
+}
+
+task thingworxDist(type:Zip, description:'Compile a zipped distribution for Thingworx' ){
+	
+	//Zip the compiled jars into the libs folder
+    into ('lib') {
+    	from jar.outputs.files
+    	from "$buildDir/required"
+    	
+    }
+    from metaData
+}
+thingworxDist.dependsOn copyRuntimeLibs 
+thingworxDist.dependsOn build
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
