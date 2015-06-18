@@ -1,6 +1,7 @@
 *.pydevproject
 .metadata
 bin/
+lib/
 .gradle/
 gradle/
 build/

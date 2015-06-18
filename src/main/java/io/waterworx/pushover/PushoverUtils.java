@@ -5,7 +5,11 @@ import java.security.InvalidParameterException;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import push.AppInjector;
+
 import com.google.gson.annotations.Since;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 import net.pushover.client.MessagePriority;
 import net.pushover.client.PushoverClient;
@@ -14,15 +18,13 @@ import net.pushover.client.PushoverMessage;
 import net.pushover.client.PushoverRestClient;
 import net.pushover.client.Status;
 
-
-
 @Singleton
 public class PushoverUtils implements PushoverService {
 
 	private static final int MAX_MESSAGE_LENGTH = 250;
 	
 	private final PushoverClient client;
-	
+		
 	@Inject
 	public PushoverUtils(PushoverRestClient client ){
 		this.client = client;  

@@ -20,16 +20,28 @@ import net.pushover.client.PushoverRestClient;
 public class Push {
 
 	private static PushoverService pushover;
-	
+
 	public static void main(String[] args) throws PushoverException, IOException {
 		Injector injector = Guice.createInjector(new AppInjector());
 		pushover = injector.getInstance(PushoverService.class);
-		
+
 		Push p = new Push();
 		p.sendMessage();
 	}
-	
+
 	private Properties prop = new Properties();
+
+	private void sendMessage() {
+		String apiToken = prop.getProperty("apiToken");
+		String userID = prop.getProperty("userID");
+		try{
+			String status = pushover.push(apiToken, userID, "Hello World");
+			System.out.println(status);
+		} catch (Exception e){
+			System.err.println(e);
+		}
+
+	}
 	
 	public Push() throws IOException{
 		String propFileName = "config.properties";
@@ -42,14 +54,5 @@ public class Push {
 		}		
 	}
 
-	private void sendMessage() {
-			String apiToken = prop.getProperty("apiToken");
-			String userID = prop.getProperty("userID");
-			try{
-				System.out.println(pushover.push(apiToken, userID, "Hello World"));
-			} catch (Exception e){
-				System.err.println(e);
-			}
-			
-}
+
 }

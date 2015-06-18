@@ -1,0 +1,25 @@
+<Entities>
+	<ExtensionPackages>
+		<ExtensionPackage name="PushoverConnector"
+						  description="Add support for Pushover (pushover.net) to Thingworx "
+						  vendor="Aquamatix"
+						  packageVersion="0.01" 
+						  minimumThingWorxVersion="4.1.0">
+			<JarResources>
+				<FileResource type="JAR" file="Pushover_Server.jar" description="" />
+				<FileResource type="JAR" file="jsch-0.1.51.jar" description="" />
+			</JarResources>
+			</ExtensionPackage>
+	</ExtensionPackages>
+	<ThingPackages>
+		<ThingPackage name="PushoverConnector" description="" className="main.java.io.waterworx.pushover.PushoverConnector" aspect.isSystemObject="false" aspect.isCreatable="true">
+		<HandlerDefinitions/>		
+		</ThingPackage>
+	</ThingPackages>
+	<ThingTemplates>
+		<ThingTemplate name="PushoverConnector" description="" thingPackage="PushoverConnector" aspect.isSystemObject="false">
+			<avatar/>
+		</ThingTemplate>
+	</ThingTemplates>
+		
+</Entities>
