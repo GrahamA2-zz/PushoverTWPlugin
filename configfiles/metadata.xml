@@ -1,12 +1,12 @@
 <Entities>
 	<ExtensionPackages>
-		<ExtensionPackage name="PushoverConnector"
+		<ExtensionPackage name="pushoverConnector"
 						  description="Adds support for Pushover (pushover.net) to Thingworx "
 						  vendor="Aquamatix"
-						  packageVersion="0.01" 
+						  packageVersion="1.0" 
 						  minimumThingWorxVersion="4.1.0">
 			<JarResources>
-				<FileResource type="JAR" file="PushoverConnector-0.1.0.jar" description="" />
+				<FileResource type="JAR" file="pushoverConnector-0.1.0.jar" description="" />               
 				<FileResource type="JAR" file="commons-codec-1.6.jar" description="" />
 				<FileResource type="JAR" file="pushover-client-1.0.0.jar" description="" />
 				<FileResource type="JAR" file="guice-4.0.jar" description="" />
@@ -16,7 +16,6 @@
 				<FileResource type="JAR" file="javax.inject-1.jar" description="" />
 				<FileResource type="JAR" file="aopalliance-1.0.jar" description="" />
 				<FileResource type="JAR" file="guava-16.0.1.jar" description="" />
-				<FileResource type="JAR" file="objenesis-2.1.jar" description="" />
 			</JarResources>
 			</ExtensionPackage>
 	</ExtensionPackages>
