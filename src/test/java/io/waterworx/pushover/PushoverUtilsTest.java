@@ -34,6 +34,13 @@ public class PushoverUtilsTest {
 		
 	}
 	
+	@Test(expected=IllegalArgumentException.class)
+	public void testPushWithAMessageThatIsToLong() throws PushoverException {	
+		String message = String.format("%1$"+251+ "s", " ");
+		pushover.push(API_TOKEN, USER_ID, message);	
+	}
+
+	
 	@Test
 	public void testPushWithTileAndURL() throws PushoverException {
 		
@@ -43,6 +50,12 @@ public class PushoverUtilsTest {
 		pushover.push(API_TOKEN, USER_ID, "Hello World", "Title", "url", "urlTitle");
 		verify(client).pushMessage(anyObject());
 		
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testPushWithTileAndURLAndMessageToLong() throws PushoverException {
+		String message = String.format("%1$"+251+ "s", " ");
+		pushover.push(API_TOKEN, USER_ID, message, "Title", "url", "urlTitle");
 	}
 
 }

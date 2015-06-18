@@ -1,5 +1,7 @@
 package io.waterworx.pushover;
 
+import java.security.InvalidParameterException;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -12,9 +14,13 @@ import net.pushover.client.PushoverMessage;
 import net.pushover.client.PushoverRestClient;
 import net.pushover.client.Status;
 
+
+
 @Singleton
 public class PushoverUtils implements PushoverService {
 
+	private static final int MAX_MESSAGE_LENGTH = 250;
+	
 	private final PushoverClient client;
 	
 	@Inject
@@ -27,11 +33,13 @@ public class PushoverUtils implements PushoverService {
 	 */
 	@Override
 	public String push(String apiToken, String userID, String message ) throws PushoverException{
+		if ( message.length() > MAX_MESSAGE_LENGTH){
+			throw new InvalidParameterException(String.format("Message length is to long (%s) expected %s",  message.length()));
+		}
+		
 		Status status = client.pushMessage(PushoverMessage.builderWithApiToken(apiToken)
 		        .setUserId(userID)
 		        .setMessage(message)
-		        .setPriority(MessagePriority.HIGH)
-		        .setSound("alien")
 		        .build());
 		return status.toString();
 	}
@@ -40,6 +48,10 @@ public class PushoverUtils implements PushoverService {
 	public String push(String apiToken, String userID, String message,
 			String title, String url, String urlTitle)
 			throws PushoverException {
+
+		if ( message.length() > MAX_MESSAGE_LENGTH){
+			throw new InvalidParameterException(String.format("Message length is to long (%s) expected %s",  message.length()));
+		}
 		
 		Status status = client.pushMessage(PushoverMessage.builderWithApiToken(apiToken)
 		        .setTitleForURL(urlTitle)
@@ -47,7 +59,6 @@ public class PushoverUtils implements PushoverService {
 		        .setTitle(title)
 				.setUserId(userID)
 		        .setMessage(message)
-		        .setPriority(MessagePriority.HIGH)
 		        .setSound("alien")
 		        .build());
 		return status.toString();

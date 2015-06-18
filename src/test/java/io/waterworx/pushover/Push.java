@@ -1,10 +1,11 @@
-package push;
+package io.waterworx.pushover;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import push.AppInjector;
 import io.waterworx.pushover.PushoverService;
 
 import com.google.inject.Guice;
