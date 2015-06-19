@@ -5,16 +5,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import net.pushover.client.PushoverException;
 import push.AppInjector;
-import io.waterworx.pushover.PushoverService;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-
-import net.pushover.client.PushoverClient;
-import net.pushover.client.PushoverException;
-import net.pushover.client.PushoverMessage;
-import net.pushover.client.PushoverRestClient;
 
 
 public class Push {
