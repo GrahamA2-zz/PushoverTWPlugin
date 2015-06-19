@@ -35,7 +35,7 @@ public class Push {
 		String apiToken = prop.getProperty("apiToken");
 		String userID = prop.getProperty("userID");
 		try{
-			String status = pushover.push(apiToken, userID, "Hello World");
+			String status = pushover.push(apiToken, "ut2BN71hqXPQwJ1v6vK2c5Xqg7LkRV", "Critical Message");
 			System.out.println(status);
 		} catch (Exception e){
 			System.err.println(e);

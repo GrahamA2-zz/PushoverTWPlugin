@@ -10,19 +10,21 @@ import com.thingworx.metadata.annotations.ThingworxServiceParameter;
 import com.thingworx.metadata.annotations.ThingworxServiceResult;
 import com.thingworx.things.Thing;
 
-//@formatter:off
-@ThingworxConfigurationTableDefinitions( tables = { @com.thingworx.metadata.annotations.ThingworxConfigurationTableDefinition(
-				name = "ConnectionInfo",
-				description = "Pushover Connector Application Parameters", 
-				isMultiRow = false,
-				ordinal = 0,
-				dataShape = @com.thingworx.metadata.annotations.ThingworxDataShapeDefinition(
-						fields = { @com.thingworx.metadata.annotations.ThingworxFieldDefinition( ordinal = 0,
-																						 		 name = "apiToken",
-																								 description = "Application API Token/Key",
-																								 baseType = "STRING", 
-																								 aspects = { "defaultValue:", "friendlyName:Application Token" })
-}))})
+
+@ThingworxConfigurationTableDefinitions( tables = { @com.thingworx.metadata.annotations.ThingworxConfigurationTableDefinition(	
+		name = "PushoverConnector",
+		description = "Pushover Application Connection Parameters",
+		isMultiRow = false,
+		ordinal = 0,
+		dataShape = @com.thingworx.metadata.annotations.ThingworxDataShapeDefinition(
+				fields = { @com.thingworx.metadata.annotations.ThingworxFieldDefinition( ordinal = 0,
+				                                                                         name = "APIToken",
+				                                                                         description = "your application's API token",
+				                                                                         baseType = "STRING",
+				                                                                         aspects = { "defaultValue:your.token", "friendlyName:API Token" }),
+					
+
+})) })
 
 
 public class PushoverConnector extends Thing{
@@ -39,7 +41,7 @@ public class PushoverConnector extends Thing{
 	@Override
 	protected void initializeThing() throws Exception {
 		//May need to move pushover here 
-		this.apiToken = ((String) getConfigurationData().getValue("APIToken", "PushoverConnector"));
+		this.apiToken = ((String) getConfigurationData().getValue("PushoverConnector", "APIToken"));
 	}
 	
 	@ThingworxServiceDefinition(name = "PushMessage", description = "Push a notification to a user or group")
@@ -51,6 +53,7 @@ public class PushoverConnector extends Thing{
 								                            description = "your message",
 								                            baseType = "STRING",
 								                            aspects = { "defaultValue:" }) String message) throws Exception {
+		
 		String status = pushover.push(apiToken, userID, message);
 		return status;
 	}

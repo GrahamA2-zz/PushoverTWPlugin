@@ -42,6 +42,8 @@ public class PushoverUtils implements PushoverService {
 		Status status = client.pushMessage(PushoverMessage.builderWithApiToken(apiToken)
 		        .setUserId(userID)
 		        .setMessage(message)
+		        .setSound("alien")
+		        .setPriority(MessagePriority.HIGH)
 		        .build());
 		return status.toString();
 	}
