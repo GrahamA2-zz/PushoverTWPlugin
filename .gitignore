@@ -14,6 +14,7 @@ Pushover_connector.zip
 local.properties
 .settings/
 .loadpath
+distributions/
 
 #Properties file contains the APIToken and userID
 config.properties
