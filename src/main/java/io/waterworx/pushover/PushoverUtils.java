@@ -5,13 +5,6 @@ import java.security.InvalidParameterException;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import push.AppInjector;
-
-import com.google.gson.annotations.Since;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-
-import net.pushover.client.MessagePriority;
 import net.pushover.client.PushoverClient;
 import net.pushover.client.PushoverException;
 import net.pushover.client.PushoverMessage;
@@ -37,13 +30,10 @@ public class PushoverUtils implements PushoverService {
 	public String push(String apiToken, String userID, String message ) throws PushoverException{
 		if ( message.length() > MAX_MESSAGE_LENGTH){
 			throw new InvalidParameterException(String.format("Message length is to long (%s) expected %s",  message.length()));
-		}
-		
+		}		
 		Status status = client.pushMessage(PushoverMessage.builderWithApiToken(apiToken)
 		        .setUserId(userID)
 		        .setMessage(message)
-		        .setSound("alien")
-		        .setPriority(MessagePriority.HIGH)
 		        .build());
 		return status.toString();
 	}

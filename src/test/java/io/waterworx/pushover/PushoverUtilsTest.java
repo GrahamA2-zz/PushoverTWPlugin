@@ -1,7 +1,9 @@
 package io.waterworx.pushover;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Matchers.anyObject;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import net.pushover.client.PushoverException;
 import net.pushover.client.PushoverRestClient;
 import net.pushover.client.Status;
