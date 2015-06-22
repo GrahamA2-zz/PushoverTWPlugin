@@ -45,3 +45,4 @@ config.properties
 
 # TeXlipse plugin
 .texlipse
+/pushoverConnector.zip
