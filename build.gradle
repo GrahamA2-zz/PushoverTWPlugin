@@ -38,7 +38,7 @@ jar {
 File metaData = file('configfiles/metadata.xml')
 
 task copyRuntimeLibs(type: Copy) {
-    into "$buildDir/required"
+    into "${buildDir}/required"
     from configurations.runtime
     exclude 'thingworx-all-4.2.0.jar','slf4j-api-1.7.5.jar','joda-time-2.8.1.jar'
 }
