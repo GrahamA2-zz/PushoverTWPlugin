@@ -27,10 +27,15 @@ public class Push {
 	private Properties prop = new Properties();
 
 	private void sendMessage() {
-		String apiToken = prop.getProperty("apiToken");
+		//aWj3fiqfdeLLqsQUFTSHGLQ1sqFhVq -- Shift change
+		//amtNSeeqpyi6NFX5A8f8zG3VPJb38u -- Alarm
+		//ada2JVK8ydZy21wQ8JhDavbYoeJdFF -- SWB
+		String apiToken =  "ada2JVK8ydZy21wQ8JhDavbYoeJdFF"; prop.getProperty("apiToken");
 		String userID = prop.getProperty("userID");
 		try{
-			String status = pushover.push(apiToken, "ut2BN71hqXPQwJ1v6vK2c5Xqg7LkRV", "Critical Message");
+			System.out.println("userID:" + userID);
+			System.out.println("apiToken:" + apiToken);
+			String status = pushover.push(apiToken, userID, "SWB: Go to site x");
 			System.out.println(status);
 		} catch (Exception e){
 			System.err.println(e);

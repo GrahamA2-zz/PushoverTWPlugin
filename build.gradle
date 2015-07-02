@@ -40,7 +40,12 @@ File metaData = file('configfiles/metadata.xml')
 task copyRuntimeLibs(type: Copy) {
     into "${buildDir}/required"
     from configurations.runtime
-    exclude 'thingworx-all-4.2.0.jar','slf4j-api-1.7.5.jar','joda-time-2.8.1.jar'
+    exclude 'thingworx-all-4.2.0.jar',
+    'slf4j-api-1.7.5.jar',
+    'joda-time-2.8.1.jar',
+    'commons-codec-1.6.jar',
+    'httpcore-4.2.1.jar',
+    'httpclient-4.2.1.jar'
 }
 
 task thingworxDist(type:Zip, description:'Compile a zipped distribution for Thingworx' ){
@@ -56,8 +61,8 @@ task thingworxDist(type:Zip, description:'Compile a zipped distribution for Thin
 thingworxDist.dependsOn copyRuntimeLibs 
 thingworxDist.dependsOn build
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 
 // In this section you declare the dependencies for your production and test code
