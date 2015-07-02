@@ -27,13 +27,43 @@ repositories {
 
 
 jar {
-    baseName = 'pushoverCommon'
+    baseName = 'pushoverConnector'
     version =  '0.1.0'
     manifest {
-    attributes 'Implementation-Title': 'pushoverCommon',
+    attributes 'Implementation-Title': 'PushoverConnector',
                'Implementation-Version': version
     }
 }
+
+File metaData = file('configfiles/metadata.xml')
+
+task copyRuntimeLibs(type: Copy) {
+    into "${buildDir}/required"
+    from configurations.runtime
+    exclude 'thingworx-all-4.2.0.jar',
+    'slf4j-api-1.7.5.jar',
+    'joda-time-2.8.1.jar',
+    'commons-codec-1.6.jar',
+    'httpcore-4.2.1.jar',
+    'httpclient-4.2.1.jar'
+}
+
+task thingworxDist(type:Zip, description:'Compile a zipped distribution for Thingworx' ){
+	
+	//Zip the compiled jars into the libs folder
+    into ('lib/common') {
+    	from jar.outputs.files
+    	from "$buildDir/required"
+    	
+    }
+    from metaData
+}
+thingworxDist.dependsOn copyRuntimeLibs 
+thingworxDist.dependsOn build
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
@@ -43,6 +73,9 @@ dependencies {
 	compile 'com.google.inject:guice:4.0'
 	compile 'joda-time:joda-time:2.8.1'
 	
+	compile project(':commonCode')
+	//This jar is need to build a Thingworx jar, should be avalable for TW users from PTC/Thingworx
+	compile 'com.thingworx:thingworx:+'
 	
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
