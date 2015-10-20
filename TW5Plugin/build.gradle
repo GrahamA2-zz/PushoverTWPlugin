@@ -40,7 +40,7 @@ File metaData = file('configfiles/metadata.xml')
 task copyRuntimeLibs(type: Copy) {
     into "${buildDir}/required"
     from configurations.runtime
-    exclude 'thingworx-all-4.2.0.jar','slf4j-api-1.7.5.jar','joda-time-2.8.1.jar'
+    exclude 'thingworx-all-5.4.0.b445.jar','slf4j-api-1.7.5.jar','joda-time-2.8.1.jar'
 }
 
 task thingworxDist(type:Zip, description:'Compile a zipped distribution for Thingworx' ){
@@ -70,6 +70,7 @@ dependencies {
 	
 	//TODO Add Jackson, and netty
 	
+	compile project(':commonCode')
 	//This jar is need to build a Thingworx jar, should be avalable for TW users from PTC/Thingworx
 	compile 'com.thingworx:thingworx:+'
 	

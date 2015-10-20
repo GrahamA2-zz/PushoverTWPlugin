@@ -40,21 +40,4 @@ public class PushoverUtilsTest {
 	}
 
 	
-	@Ignore
-	public void testPushWithTileAndURL() throws PushoverException {
-		
-		Status status = mock(Status.class);
-		//when(client.pushMessage(anyObject())).thenReturn(status);
-		
-		pushover.push(API_TOKEN, USER_ID, "Hello World", "Title", "url", "urlTitle");
-		//verify(client).pushMessage(anyObject());
-		
-	}
-	
-	@Ignore//(expected=IllegalArgumentException.class)
-	public void testPushWithTileAndURLAndMessageToLong() throws PushoverException {
-		String message = String.format("%1$"+251+ "s", " ");
-		pushover.push(API_TOKEN, USER_ID, message, "Title", "url", "urlTitle");
-	}
-
 }

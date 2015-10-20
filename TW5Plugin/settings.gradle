@@ -16,4 +16,6 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'pushoverConnectorTW4'
+rootProject.name = 'pushoverConnectorTW5'
+include ':commonCode'
+project(':commonCode').projectDir = new File(settingsDir, '../CommonCode')
