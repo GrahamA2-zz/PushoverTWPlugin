@@ -1,0 +1,31 @@
+<Entities>
+	<ExtensionPackages>
+		<ExtensionPackage name="pushoverConnector"
+						  description="Adds support for Pushover (pushover.net) to Thingworx "
+						  vendor="Aquamatix"
+						  packageVersion="1.0" 
+						  minimumThingWorxVersion="4.1.0">
+			<JarResources>
+				<FileResource type="JAR" file="pushoverConnector-0.1.0.jar" description="" />  
+				<FileResource type="JAR" file="pushoverCommon-0.1.0.jar" description="" />             
+				<FileResource type="JAR" file="pushover-client-1.0.0.jar" description="" />
+				<FileResource type="JAR" file="guice-4.0.jar" description="" />
+				<FileResource type="JAR" file="gson-2.2.2.jar" description="" />
+				<FileResource type="JAR" file="javax.inject-1.jar" description="" />
+				<FileResource type="JAR" file="aopalliance-1.0.jar" description="" />
+				<FileResource type="JAR" file="guava-16.0.1.jar" description="" />
+			</JarResources>
+			</ExtensionPackage>
+	</ExtensionPackages>
+	<ThingPackages>
+		<ThingPackage name="PushoverConnector" description="" className="io.waterworx.pushover.PushoverConnector" aspect.isSystemObject="false" aspect.isCreatable="true">
+		<HandlerDefinitions/>		
+		</ThingPackage>
+	</ThingPackages>
+	<ThingTemplates>
+		<ThingTemplate name="PushoverConnector" description="" thingPackage="PushoverConnector" aspect.isSystemObject="false">
+			<avatar/>
+		</ThingTemplate>
+	</ThingTemplates>
+		
+</Entities>
