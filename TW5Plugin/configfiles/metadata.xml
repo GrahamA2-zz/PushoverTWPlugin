@@ -4,7 +4,7 @@
 						  description="Adds support for Pushover (pushover.net) to Thingworx "
 						  vendor="Aquamatix"
 						  packageVersion="1.0" 
-						  minimumThingWorxVersion="4.1.0">
+						  minimumThingWorxVersion="4.1.2">
 			<JarResources>
 				<FileResource type="JAR" file="pushoverConnector-0.1.0.jar" description="" />  
 				<FileResource type="JAR" file="pushoverCommon-0.1.0.jar" description="" />             
