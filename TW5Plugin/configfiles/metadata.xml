@@ -13,7 +13,6 @@
 				<FileResource type="JAR" file="gson-2.2.2.jar" description="" />
 				<FileResource type="JAR" file="javax.inject-1.jar" description="" />
 				<FileResource type="JAR" file="aopalliance-1.0.jar" description="" />
-				<FileResource type="JAR" file="guava-16.0.1.jar" description="" />
 			</JarResources>
 			</ExtensionPackage>
 	</ExtensionPackages>

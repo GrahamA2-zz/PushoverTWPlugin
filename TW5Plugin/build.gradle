@@ -24,7 +24,18 @@ repositories {
 }
 //version =  '0.1.0'
 
+def javaVersion = JavaVersion.VERSION_1_7;
+sourceCompatibility = javaVersion;
+targetCompatibility = javaVersion;
 
+task enforceVersion << {
+    def foundVersion = JavaVersion.current();
+    if (foundVersion != javaVersion) 
+        throw new IllegalStateException("Wrong Java version; required is "
+            + javaVersion + ", but found " + foundVersion);
+}
+
+compileJava.dependsOn(enforceVersion);
 
 jar {
     baseName = 'pushoverConnector'
@@ -55,10 +66,6 @@ task thingworxDist(type:Zip, description:'Compile a zipped distribution for Thin
 }
 thingworxDist.dependsOn copyRuntimeLibs 
 thingworxDist.dependsOn build
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
