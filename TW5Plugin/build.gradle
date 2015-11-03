@@ -40,7 +40,7 @@ File metaData = file('configfiles/metadata.xml')
 task copyRuntimeLibs(type: Copy) {
     into "${buildDir}/required"
     from configurations.runtime
-    exclude 'thingworx-all-5.4.0.b445.jar','slf4j-api-1.7.5.jar','joda-time-2.8.1.jar'
+    exclude 'thingworx-all-5.4.0.b445.jar','slf4j-api-1.7.5.jar','joda-time-2.8.1.jar','guava-16.0.1.jar'
 }
 
 task thingworxDist(type:Zip, description:'Compile a zipped distribution for Thingworx' ){
