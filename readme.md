@@ -11,4 +11,6 @@ To build a Thingworx plugin you will need to place the thingworx.jar into the li
 
 These .jars can't be included in this project as I don't have the authors permision.
 
+This project uses Gradle (http://gradle.org/)
+
 To build the plugins run: `gradle thingworxDist`  
