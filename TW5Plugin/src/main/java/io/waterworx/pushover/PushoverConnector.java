@@ -27,7 +27,7 @@ import com.thingworx.things.Thing;
 })) })
 
 
-public class PushoverConnector extends Thing{
+public class PushoverConnector extends Thing{ 
 
 	private static final long serialVersionUID = 1L;
 	private final PushoverService pushover;
