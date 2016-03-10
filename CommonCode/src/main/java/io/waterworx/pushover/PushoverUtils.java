@@ -48,7 +48,17 @@ public class PushoverUtils implements PushoverService {
 			throw new InvalidParameterException(String.format("Message length is to long (%s) expected %s",  message.length()));
 		}
 		
+		
 		MessagePriority mPriority = MessagePriority.NORMAL;
+		switch (priority) {
+		case -1:
+			mPriority = mPriority.QUIET;
+			break;
+		case 1:
+			mPriority = mPriority.HIGH;
+			break;
+		}
+		
 		
 		Status status = client.pushMessage(PushoverMessage.builderWithApiToken(apiToken)
 		        .setTitleForURL(urlTitle)
