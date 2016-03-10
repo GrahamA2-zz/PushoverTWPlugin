@@ -59,19 +59,19 @@ public class PushoverConnector extends Thing {
 			@ThingworxServiceParameter(name = "device", description = "Your user's device name to send the message directly to that device, rather than all of the user's devices (multiple devices may be separated by a comma)", baseType = "STRING", aspects = {
 					"defaultValue:" }) String device,
 			@ThingworxServiceParameter(name = "title", description = "Your message's title, otherwise your app's name is used", baseType = "STRING", aspects = {
-					"defaultValue:" }) String title,
+					"defaultValue:Thingwox Pushover Message" }) String title,
 			@ThingworxServiceParameter(name = "url", description = "A supplementary URL to show with your message", baseType = "STRING", aspects = {
 					"defaultValue:" }) String url,
 			@ThingworxServiceParameter(name = "url_title", description = "A title for your supplementary URL, otherwise just the URL is shown", baseType = "STRING", aspects = {
 					"defaultValue:" }) String url_title,
 			@ThingworxServiceParameter(name = "priority", description = "Send as -2 to generate no notification/alert, -1 to always send as a quiet notification, 1 to display as high-priority and bypass the user's quiet hours, or 2 to also require confirmation from the user", baseType = "NUMBER", aspects = {
 					"defaultValue:0" }) Double priority,
-			@ThingworxServiceParameter(name = "timestamp", description = "A Unix timestamp of your message's date and time to display to the user, rather than the time your message is received by our API", baseType = "STRING", aspects = {
-					"defaultValue:" }) String timestamp,
+			@ThingworxServiceParameter(name = "timestamp", description = "A Unix timestamp of your message's date and time to display to the user, rather than the time your message is received by our API", baseType = "NUMBER", aspects = {
+					"defaultValue:0" }) Double timestamp,
 			@ThingworxServiceParameter(name = "sound", description = "The name of one of the sounds supported by device clients to override the user's default sound choice", baseType = "STRING", aspects = {
 					"defaultValue:", "pushover" }) String sound) throws Exception {
 		Integer vPriorty = priority.intValue();
-		Long vTimestamp = Long.parseLong(timestamp);
+		Long vTimestamp = timestamp.longValue();
 		if (vTimestamp == 0) {
 			Date now = new Date();
 			vTimestamp = new Long(now.getTime() / 1000);

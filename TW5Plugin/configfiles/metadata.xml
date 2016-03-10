@@ -3,7 +3,7 @@
 		<ExtensionPackage name="pushoverConnector"
 						  description="Adds support for Pushover (pushover.net) to Thingworx "
 						  vendor="Aquamatix"
-						  packageVersion="1.5" 
+						  packageVersion="1.5.3" 
 						  minimumThingWorxVersion="5.4.0">
 			<JarResources>
 				<FileResource type="JAR" file="pushoverConnector-0.1.0.jar" description="" />  
