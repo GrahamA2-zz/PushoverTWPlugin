@@ -24,6 +24,8 @@ repositories {
 }
 //version =  '0.1.0'
 
+/* Used when tomcat is using a different version of java */
+
 def javaVersion = JavaVersion.VERSION_1_7;
 sourceCompatibility = javaVersion;
 targetCompatibility = javaVersion;
@@ -34,6 +36,8 @@ task enforceVersion << {
         throw new IllegalStateException("Wrong Java version; required is "
             + javaVersion + ", but found " + foundVersion);
 }
+ 
+
 
 compileJava.dependsOn(enforceVersion);
 

@@ -64,13 +64,13 @@ public class PushoverConnector extends Thing {
 					"defaultValue:" }) String url,
 			@ThingworxServiceParameter(name = "url_title", description = "A title for your supplementary URL, otherwise just the URL is shown", baseType = "STRING", aspects = {
 					"defaultValue:" }) String url_title,
-			@ThingworxServiceParameter(name = "priority", description = "Send as -2 to generate no notification/alert, -1 to always send as a quiet notification, 1 to display as high-priority and bypass the user's quiet hours, or 2 to also require confirmation from the user", baseType = "STRING", aspects = {
-					"defaultValue:", "0" }) String priority,
+			@ThingworxServiceParameter(name = "priority", description = "Send as -2 to generate no notification/alert, -1 to always send as a quiet notification, 1 to display as high-priority and bypass the user's quiet hours, or 2 to also require confirmation from the user", baseType = "NUMBER", aspects = {
+					"defaultValue:0" }) Double priority,
 			@ThingworxServiceParameter(name = "timestamp", description = "A Unix timestamp of your message's date and time to display to the user, rather than the time your message is received by our API", baseType = "STRING", aspects = {
 					"defaultValue:" }) String timestamp,
 			@ThingworxServiceParameter(name = "sound", description = "The name of one of the sounds supported by device clients to override the user's default sound choice", baseType = "STRING", aspects = {
 					"defaultValue:", "pushover" }) String sound) throws Exception {
-		Integer vPriorty = Integer.parseInt(priority);
+		Integer vPriorty = priority.intValue();
 		Long vTimestamp = Long.parseLong(timestamp);
 		if (vTimestamp == 0) {
 			Date now = new Date();
