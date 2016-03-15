@@ -68,7 +68,7 @@ public class PushoverConnector extends Thing {
 					"defaultValue:0" }) Double priority,
 			@ThingworxServiceParameter(name = "timestamp", description = "A Unix timestamp of your message's date and time to display to the user, rather than the time your message is received by our API", baseType = "NUMBER", aspects = {
 					"defaultValue:0" }) Double timestamp,
-			@ThingworxServiceParameter(name = "sound", description = "The name of one of the sounds supported by device clients to override the user's default sound choice", baseType = "NUMBER", aspects = {
+			@ThingworxServiceParameter(name = "sound", description = "The name of one of the sounds supported by device clients to override the user's default sound choice", baseType = "STRING", aspects = {
 					"defaultValue:", "pushover" }) String sound) throws Exception {
 		Integer vPriorty = priority.intValue();
 		Long vTimestamp = timestamp.longValue();
